@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <title>Formulário exemplo - Platzi Cursos</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>Formulário para pedido de pizza</h2>
+  <form>
+    <div class="form-group">
+      <label for="exampleFormControlInput1">Endereço de e-mail</label>
+      <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@exemplo.com">
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlSelect1">Tamanho da pizza</label>
+      <select class="form-control" id="exampleFormControlSelect1">
+        <option>Brotinho</option>
+        <option>Pequena</option>
+        <option>Média</option>
+        <option>Grande</option>
+        <option>Extra grande</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlSelect2">Selecione as coberturas (Mais de uma)</label>
+      <select multiple class="form-control" id="exampleFormControlSelect2">
+        <option>Peperoni</option>
+        <option>Queijo</option>
+        <option>Salame</option>
+        <option>Calabresa</option>
+        <option>Frango</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1">Observações</label>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Pedir!</button>
+  </form>
+</div>
+
+</body>
+</html>
