@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 28-Nov-2018 às 21:15
+-- Generation Time: 30-Nov-2018 às 19:54
 -- Versão do servidor: 10.1.36-MariaDB
 -- versão do PHP: 7.1.23
 
@@ -5706,6 +5706,24 @@ INSERT INTO `imoveis` (`imovel_id`, `titulo`, `descricao`, `tipo_id`, `endereco`
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `roles`
+--
+
+CREATE TABLE `roles` (
+  `id` int(9) NOT NULL,
+  `role` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Extraindo dados da tabela `roles`
+--
+
+INSERT INTO `roles` (`id`, `role`) VALUES
+(1, 'Admin');
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `status_imoveis`
 --
 
@@ -5723,7 +5741,8 @@ INSERT INTO `status_imoveis` (`status_id`, `nome`, `descricao`) VALUES
 (1, 'Aluga-se', 'Imóvel disponível para locação.'),
 (2, 'Vende-se', 'Imóvel disponível para venda'),
 (3, 'Reservado', 'Imóvel reservado, não pode ser locado e/ou vendido no momento, porém depende da concretização do contrato.'),
-(4, 'Em breve', 'Imóvel em negociação de entrada, em breve disponível para compra e/ou locação.');
+(4, 'Em breve', 'Imóvel em negociação de entrada, em breve disponível para compra e/ou locação.'),
+(5, 'Alugado', 'Imóvel cadastrado e alugado pela imobiliária.');
 
 -- --------------------------------------------------------
 
@@ -5750,25 +5769,28 @@ INSERT INTO `tipos_imoveis` (`tipo_imovel_id`, `nome`, `descricao`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `usuarios`
+-- Estrutura da tabela `users`
 --
 
-CREATE TABLE `usuarios` (
-  `usuario_id` int(11) NOT NULL,
-  `nome` varchar(64) NOT NULL,
-  `email` varchar(64) NOT NULL,
-  `senha` varchar(64) NOT NULL,
-  `telefone` varchar(64) NOT NULL,
-  `nascimento` date NOT NULL,
-  `ativo` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE `users` (
+  `id` int(9) NOT NULL,
+  `fname` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `lname` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `wrong_logins` int(9) NOT NULL DEFAULT '0',
+  `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `user_role` int(9) NOT NULL DEFAULT '1',
+  `confirmed` tinyint(1) NOT NULL DEFAULT '0',
+  `confirm_code` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Extraindo dados da tabela `usuarios`
+-- Extraindo dados da tabela `users`
 --
 
-INSERT INTO `usuarios` (`usuario_id`, `nome`, `email`, `senha`, `telefone`, `nascimento`, `ativo`) VALUES
-(1, 'Admin', 'admin@platzi.com', 'e10adc3949ba59abbe56e057f20f883e', '(11)3344-5588', '1990-11-28', 1);
+INSERT INTO `users` (`id`, `fname`, `lname`, `email`, `wrong_logins`, `password`, `user_role`, `confirmed`, `confirm_code`) VALUES
+(1, 'Felipe', 'Ladislau', 'felipe.s.ladislau@gmail.com', 3, '$2y$10$UffWOuOi8Wx3yQDixvpH2egvaSk86/thCmh5cx0yd28sYUr683/Ne', 1, 1, NULL),
+(3, 'Felipe', 'Ladislau', 'felipe@4steps.com.br', 0, '$2y$10$Ot4Btcn7gzu2AQpfYTyPrOLmf1rmXaFiunIKZm1V7ADB6xNtSdA8G', 1, 1, NULL);
 
 --
 -- Indexes for dumped tables
@@ -5807,6 +5829,13 @@ ALTER TABLE `imoveis`
   ADD KEY `cliente_id` (`cliente_id`);
 
 --
+-- Indexes for table `roles`
+--
+ALTER TABLE `roles`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `role` (`role`);
+
+--
 -- Indexes for table `status_imoveis`
 --
 ALTER TABLE `status_imoveis`
@@ -5819,10 +5848,12 @@ ALTER TABLE `tipos_imoveis`
   ADD PRIMARY KEY (`tipo_imovel_id`);
 
 --
--- Indexes for table `usuarios`
+-- Indexes for table `users`
 --
-ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`usuario_id`);
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`),
+  ADD KEY `user_role` (`user_role`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -5853,10 +5884,16 @@ ALTER TABLE `imoveis`
   MODIFY `imovel_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `roles`
+--
+ALTER TABLE `roles`
+  MODIFY `id` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `status_imoveis`
 --
 ALTER TABLE `status_imoveis`
-  MODIFY `status_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `status_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tipos_imoveis`
@@ -5865,10 +5902,10 @@ ALTER TABLE `tipos_imoveis`
   MODIFY `tipo_imovel_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `usuarios`
+-- AUTO_INCREMENT for table `users`
 --
-ALTER TABLE `usuarios`
-  MODIFY `usuario_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+ALTER TABLE `users`
+  MODIFY `id` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
@@ -5896,6 +5933,12 @@ ALTER TABLE `imoveis`
   ADD CONSTRAINT `imoveis_ibfk_3` FOREIGN KEY (`tipo_id`) REFERENCES `tipos_imoveis` (`tipo_imovel_id`),
   ADD CONSTRAINT `imoveis_ibfk_4` FOREIGN KEY (`status_id`) REFERENCES `status_imoveis` (`status_id`),
   ADD CONSTRAINT `imoveis_ibfk_5` FOREIGN KEY (`cliente_id`) REFERENCES `clientes` (`cliente_id`);
+
+--
+-- Limitadores para a tabela `users`
+--
+ALTER TABLE `users`
+  ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`user_role`) REFERENCES `roles` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
