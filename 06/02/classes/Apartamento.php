@@ -6,7 +6,7 @@ class Apartamento extends Imovel{
     
     private $bloco;
     private $andar;
-    private $numero;
+    private $apartamentoNmro;
 
     public function defineAndar($andar){
         
