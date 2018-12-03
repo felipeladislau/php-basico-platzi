@@ -1,12 +1,8 @@
 <?php
 
-//require_once('classes\Imovel.php');
-require_once('classes\Apartamento.php');
+require_once('classes\Imovel.php');
 
 
-//$casaFelipe = new Imovel;
-$casaFelipe = new Apartamento;
+$casaFelipe = new Imovel;
 
 echo $casaFelipe->alugaImovel("Felipe") . "\n";
-
-echo $casaFelipe->defineAndar(2);
