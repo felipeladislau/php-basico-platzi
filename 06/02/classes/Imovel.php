@@ -11,6 +11,8 @@ class Imovel {
     public function __constructor(String $nome, String $endereco, $valor = '0'){
 
         $this->nome = $nome;
+        $this->endereco = $endereco;
+        $this->valor = $valor;
         
     }
 

@@ -5,7 +5,7 @@ require_once('classes\Apartamento.php');
 
 
 //$casaFelipe = new Imovel;
-$casaFelipe = new Apartamento;
+$casaFelipe = new Apartamento('Apartamento 1', 'Avenida Paulista, 1820');
 
 echo $casaFelipe->alugaImovel("Felipe") . "\n";
 
