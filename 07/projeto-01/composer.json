@@ -1,0 +1,17 @@
+{
+    "name": "felipe/projetofinal",
+    "description": "Projeto final do curso de PHP Platzi",
+    "authors": [
+        {
+            "name": "Felipe Ladislau",
+            "email": "felipe.s.ladislau@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "classes\\":"classes"
+        }
+    },
+    "minimum-stability": "stable",
+    "require": {}
+}

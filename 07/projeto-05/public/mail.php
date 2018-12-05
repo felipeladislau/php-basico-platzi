@@ -1,0 +1,4 @@
+<?php
+
+// SCRIPT PARA ENVIO DE E-MAILS
+
