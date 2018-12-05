@@ -93,7 +93,7 @@ require('templates/menu.htm');
 <div id="page-wrapper">
 	<div class="main-page">
 		<div class="forms">
-			<h2 class="title1">Cadastro de imóveis</h2>
+			<h2 class="title1">Cadastro de tipos</h2>
 
 
 			<div class="row">
@@ -115,89 +115,6 @@ require('templates/menu.htm');
 							<div class="col-sm-8"><textarea name="txtarea1" id="txtarea1" cols="50" rows="4" class="form-control1"></textarea></div>
 						</div>
 
-						<div class="form-group">
-							<label class="col-sm-2 control-label">Foto 1</label>
-							<div class="col-sm-8">
-								<input type="file" class="form-control1" id="focusedinput" placeholder="">
-							</div>
-						</div>
-
-						<div class="form-group">
-							<label class="col-sm-2 control-label">Foto 2</label>
-							<div class="col-sm-8">
-								<input type="file" class="form-control1" id="focusedinput" placeholder="">
-							</div>
-						</div>
-
-						<div class="form-group">
-							<label class="col-sm-2 control-label">Foto 3</label>
-							<div class="col-sm-8">
-								<input type="file" class="form-control1" id="focusedinput" placeholder="">
-							</div>
-						</div>
-
-
-						<div class="form-group">
-							<label for="selector1" class="col-sm-2 control-label">Tipo do imóvel</label>
-							<div class="col-sm-8"><select name="selector1" id="selector1" class="form-control1">
-								<option>Selecione o tipo do imovel.</option>
-								<option>Casa</option>
-								<option>Apartamento</option>
-							</select></div>
-						</div>
-
-
-						<div class="form-group">
-							<label for="selector1" class="col-sm-2 control-label">Status do imóvel</label>
-							<div class="col-sm-8">
-								<input type="text" class="form-control1" id="focusedinput" placeholder="">
-							</div>
-						</div>
-
-
-						<div class="form-group">
-							<label class="col-sm-2 control-label">Endereço do imóvel</label>
-							<div class="col-sm-8">
-								<input type="text" class="form-control1" id="focusedinput" placeholder="">
-							</div>
-						</div>
-
-						
-
-						<div class="form-group">
-							<label for="selector1" class="col-sm-2 control-label">Estado</label>
-							<div class="col-sm-8"><select name="selector1" id="selector1" class="form-control1">
-								<option>Selecione o estado do imovel.</option>
-								<option>São Paulo.</option>
-								<option>Amapá.</option>
-							</select></div>
-						</div>
-	
-	
-						<div class="form-group">
-							<label for="selector1" class="col-sm-2 control-label">Cidade</label>
-							<div class="col-sm-8"><select name="selector1" id="selector1" class="form-control1">
-								<option>Selecione a cidade do imovel.</option>
-								<option>São Paulo.</option>
-								<option>Macapá.</option>
-							</select></div>
-						</div>
-		
-			
-						<div class="form-group">
-							<label class="col-sm-2 control-label">Valor do imóvel</label>
-							<div class="col-sm-8">
-								<input type="text" class="form-control1" id="focusedinput" placeholder="">
-							</div>
-							<div class="col-sm-2">
-								<p class="help-block">Venda ou locação</p>
-							</div>
-						</div>
-
-						<div class="form-group">
-							<label class="col-sm-2 control-label">Observações</label>
-							<div class="col-sm-8"><textarea name="txtarea1" id="txtarea1" cols="50" rows="4" class="form-control1"></textarea></div>
-						</div>
 
 						<button type="submit" class="btn btn-success btn-flat btn-pri"><i class="fa fa-plus" aria-hidden="true"></i> CADASTRAR</button>
 
@@ -205,9 +122,6 @@ require('templates/menu.htm');
 					</form>
 				</div>
 			</div>
-
-
-
 
 
 		</div>
